@@ -1,19 +1,12 @@
-let senators = require('./senators.json');
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './App';
+import * as serviceWorker from './serviceWorker';
 
-const party = senators.filter(party => party.party == 'republican', 'democrat', 'independent');
+ReactDOM.render(<App />, document.getElementById('root'));
 
-const state = senators.filter(state => state.state_name === 'Utah');
-
-const gender = senators.filter(gender => gender.gender == 'male', 'female');
-
-const simplify = state.map(state => {
-    return {
-        first_name:state.first_name,
-        last_name:state.last_name,
-        party:state.party,
-        gender:state.gender,
-    }
-});
-
-const senatorSenior = simplify.reduce((acc,cur) => acc);
-console.log(senatorSenior)
+// If you want your app to work offline and load faster, you can change
+// unregister() to register() below. Note this comes with some pitfalls.
+// Learn more about service workers: https://bit.ly/CRA-PWA
+serviceWorker.unregister();
